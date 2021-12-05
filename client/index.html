@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/socket.io/socket.io.js"></script>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <script src='/socket.io/socket.io.js'></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,20 +12,20 @@
     <div>
         <div>
             <label>Username</label>
-            <input type="text" id="username-input" placeholder="Enter Username">
-            <button id="login-btn" onclick="login()">Login</button>
+            <input type='text' id='username-input' placeholder='Enter Username'>
+            <button id='login-btn' onclick='login()'>Login</button>
         </div>
 
-        Send a message to: <div id="online-users"></div>
+        Send a message to: <div id='online-users'></div>
 
-        <div id="message-div" style="display: none">
+        <div id='message-div' style='display: none'>
             <label>Type Message</label>
-            <input type="text" id="message-input" placeholder="New Message">
-            <button class="btn btn-primary" onclick="sendMessage()">Send</button>
-            <ul id="messages"></ul>
+            <input type='text' id='message-input' placeholder='New Message'>
+            <button class='btn btn-primary' onclick='sendMessage()'>Send</button>
+            <ul id='messages'></ul>
         </div>
     </div>
-    <script src="groubit.js" type="module"></script>
-    <script src="index.js" type="module"></script>
+    <script src='groubit.js' type='module'></script>
+    <script src='index.js' type='module'></script>
 </body>
 </html>

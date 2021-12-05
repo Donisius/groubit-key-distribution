@@ -22,7 +22,7 @@ let from = '';
 
 // Keys a client shares with other clients
 // Follows the format:
-// { "username": { key, bases } }
+// { 'username': { key, bases } }
 const keys = {};
 
 // Currently selected online user

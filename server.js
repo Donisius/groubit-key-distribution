@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
         io.to(recipientId).emit('receive_message', { from, message });
     });
 
-    // Groubit "channel"
+    // Groubit 'channel'
     socket.on('groubits', ({ from, recipient, groubits }) => {
         const recipientId = users[recipient];
         io.to(recipientId).emit('recieve_groubits', { from, groubits });
