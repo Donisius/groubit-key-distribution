@@ -69,6 +69,10 @@ socket.on('recieve_classified_bases', ({ from, classifiedBases }) => {
 });
 
 const login = () => {
+    if (from !== '') {
+        alert('You are already logged in');
+        return;
+    }
     const username = usernameInput.value;
     socket.emit('login', { username });
     messageDiv.style.display = 'block';
@@ -144,7 +148,7 @@ const sendRandomGroubits = (user) => {
 
 const decodeGroubits = (groubits) => {
     // Bases which are used to decode groubits into bits using
-    // read if base at index i is 1 and iread if 0.
+    // `read` if `base` at index `i` is `1` and `iread` if `0`.
     const bases = [];
     const bits = groubits.map(groubit => {
         const base = Math.round(Math.random());
