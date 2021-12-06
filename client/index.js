@@ -130,11 +130,7 @@ const sendRandomGroubits = (user) => {
         const gbit = new Groubit();
         const base = Math.round(Math.random());
         bases.push(base);
-        if (base) {
-            gbit.write(bit);
-        } else {
-            gbit.iwrite(bit);
-        }
+        base ? gbit.write(bit) : gbit.iwrite(bit);
         return gbit;
     });
 
