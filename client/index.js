@@ -14,6 +14,7 @@ const messageDiv = document.getElementById('message-div');
 const messageInput = document.getElementById('message-input');
 const onlineUserList = document.getElementById('online-users');
 const messages = document.getElementById('messages');
+const recipientLabel = document.getElementById('recipient');
 
 let socket = io();
 
@@ -75,6 +76,10 @@ const login = () => {
 }
 
 const sendMessage = () => {
+    if (recipient === '') {
+        alert('Choose someone to send a message to');
+        return;
+    }
     const text = messageInput.value;
     const messageElement = document.createElement('li');
     messageElement.innerText = `${from}(you): ${text}`;
@@ -86,10 +91,14 @@ const sendMessage = () => {
 const updateOnlineUsers = (onlineUsers) => {
     onlineUserList.innerHTML = '';
     onlineUsers.forEach((onlineUser) => {
+        if (onlineUser === from) {
+            return;
+        }
         const onlineUserButton = document.createElement('button');
         onlineUserButton.onclick = () => {
             generateKeyForUser(onlineUser);
             recipient = onlineUser;
+            recipientLabel.innerText = onlineUser;
         };
         onlineUserButton.innerText = onlineUser;
         onlineUserList.appendChild(onlineUserButton);
@@ -146,7 +155,7 @@ const decodeGroubits = (groubits) => {
 }
 
 const filterUserKey = (user, classifiedBases) => {
-    // Update key for that user to only contain the bits they guessed right.
+    // Update key for the given `user` to only contain the bits they guessed right.
     keys[user].key = keys[user].key.split('').filter((_, i) => classifiedBases[i]).join('');
 }
 

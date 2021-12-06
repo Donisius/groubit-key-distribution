@@ -5,24 +5,28 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <script src='/socket.io/socket.io.js'></script>
+    <link rel="stylesheet" href="./index.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Groubit Key Distribution</h1>
+    <h1 style='font-size: 2rem'>Groubit Key Distribution</h1>
     <div>
         <div>
             <label>Username</label>
             <input type='text' id='username-input' placeholder='Enter Username'>
             <button id='login-btn' onclick='login()'>Login</button>
         </div>
-
-        Send a message to: <div id='online-users'></div>
+        <div style='display: flex'>
+            <p>Send message to: </p>
+            <p id='recipient'></p>
+        </div>
+        <div id='online-users'></div>
 
         <div id='message-div' style='display: none'>
             <label>Type Message</label>
             <input type='text' id='message-input' placeholder='New Message'>
             <button class='btn btn-primary' onclick='sendMessage()'>Send</button>
-            <ul id='messages'></ul>
+            <ul class='message-box' id='messages'></ul>
         </div>
     </div>
     <script src='groubit.js' type='module'></script>
